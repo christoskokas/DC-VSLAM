@@ -127,4 +127,9 @@ To run Dual cam :
 ./DualCam config_file_name
 ```
 
+## TO DO
+
+- [] Optimize Code
+- [] Add IMU integration
+- [] Add more Apriltags
 
