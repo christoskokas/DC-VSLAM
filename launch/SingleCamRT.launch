@@ -1,0 +1,4 @@
+<launch>
+  <node name="SingleCamRT" pkg="mc_vslam" type="SingleCamRT" args = "config_V1_02.yaml" output="screen" >
+  </node>
+</launch>

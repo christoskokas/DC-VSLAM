@@ -1,0 +1,164 @@
+# Change the values according to your camera and setup
+
+rectified: true
+rectifiedB: true
+
+# number of frames in dataset only used for non-real-time
+numOfFrames: 978
+
+# if ground path is provided 
+gtPose : true
+
+# For real-time. image path of front camera
+leftPathCam : "/camera_1/left/image_rect"
+rightPathCam : "/camera_1/right/image_rect"
+
+# For real-time. image path of back camera
+leftPathCamB : "/camera_4/left/image_rect"
+rightPathCamB : "/camera_4/right/image_rect"
+
+# topic for AprilTag detections
+aprilTagPath : "tag_detections"
+
+# topic for ground truth ( if used )
+gtPath : "ground_truth/pose"
+
+# path to image folder ( if not real-time )
+imagesPath: "/home/christos/catkin_ws/src/mini_project_kokas/src/vio_slam/images/simulation/"
+
+# image extension
+fileExtension: ".jpg"
+
+# front camera params
+Camera_l:
+  fx: 263.2786443617774
+  fy: 263.2786443617774
+  cx: 376.5
+  cy: 240.5
+  k1: 0
+  k2: 0
+  p1: 0
+  p2: 0
+  k3: 0
+
+Camera_r:
+  fx: 263.2786443617774
+  fy: 263.2786443617774
+  cx: 376.5
+  cy: 240.5
+  k1: 0
+  k2: 0
+  p1: 0
+  p2: 0
+  k3: 0
+
+Camera:
+  width: 752
+  height: 480
+  fps: 15.0
+  bl: 0.12
+
+# back camera params
+CameraB_l:
+  fx: 263.2786443617774
+  fy: 263.2786443617774
+  cx: 376.5
+  cy: 240.5
+  k1: 0
+  k2: 0
+  p1: 0
+  p2: 0
+  k3: 0
+
+CameraB_r:
+  fx: 263.2786443617774
+  fy: 263.2786443617774
+  cx: 376.5
+  cy: 240.5
+  k1: 0
+  k2: 0
+  p1: 0
+  p2: 0
+  k3: 0
+
+CameraB:
+  width: 752
+  height: 480
+  fps: 15.0
+  bl: 0.12
+
+# Feature Extractor Values
+FE:
+  nFeatures: 1000
+  nLevels: 8
+  imScale: 1.2
+  edgeThreshold: 19
+  maxFastThreshold: 20
+  minFastThreshold: 7
+  patchSize: 31
+
+# front camera to back camera
+Multi:
+  T_c1_c2:
+    rows: 4
+    cols: 4
+    dt: d
+    data: [-1.0, 0.0, 0.0, 0.12,
+         0.0, 1.0, 0.0, 0.0,
+         0.0, 0.0, -1.0, -0.3,
+         0.0, 0.0, 0.0, 1.0]
+
+# world to front camera for move_base, not used currently
+T_w_c1:
+  rows: 4
+  cols: 4
+  dt: d
+  data: [0.0, 0.0, 1.0, 0.150,
+        -1.0, 0.0, 0.0, -0.06,
+        0.0, -1.0, 0.0, -0.20,
+        0.0, 0.0, 0.0, 1.0]
+
+# base frame to c1 for optimal pose, not used currently
+T_bf_c1:
+  rows: 4
+  cols: 4
+  dt: d
+  data: [0.0, 0.0, 1.0, 0.150,
+        -1.0, 0.0, 0.0, 0.06,
+        0.0, -1.0, 0.0, 0.25,
+        0.0, 0.0, 0.0, 1.0]
+
+# if front camera to be used for AprilTag detection
+# if false T_c1_AT needs to be provided 
+LCSameCam : false
+
+# front camera to camera detecting AprilTag
+T_c1_AT:
+  rows: 4
+  cols: 4
+  dt: d
+  data: [0.0, 0.0, 1.0, 0.210,
+        0.0, 1.0, 0.0, 0.0,
+        -1.0, 0.0, 0.0, -0.09,
+        0.0, 0.0, 0.0, 1.0]
+
+# for predefined pose of April Tag, not used currently
+tagPose : false
+# T_w_tag:
+#   rows: 4
+#   cols: 4
+#   dt: d
+#   data: [0.0, 0.0, 1.0, 0.210,
+#         0.0, 1.0, 0.0, 0.0,
+#         -1.0, 0.0, 0.0, -0.09,
+#         0.0, 0.0, 0.0, 1.0]
+
+# optimal Pose for April Tag Detection, not used currently
+# T_tag_b:
+#   rows: 4
+#   cols: 4
+#   dt: d
+#   data: [-1.0, 0.0, 0.0, 0.0,
+#         0.0, 0.0, 1.0, 0.0,
+#         0.0, 1.0, 0.0, 0.3,
+#         0.0, 0.0, 0.0, 1.0]

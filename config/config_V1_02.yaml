@@ -1,0 +1,98 @@
+# Change the values according to your camera and setup
+
+rectified: false
+
+#number of frames in dataset only used for non-real-time
+numOfFrames: 1710
+seq: "00"
+
+# For real-time. image path of front camera
+leftPathCam : "/cam0/image_raw"
+rightPathCam : "/cam1/image_raw"
+
+# path to image folder ( if not real-time )
+imagesPath: "/home/christos/catkin_ws/src/mini_project_kokas/src/vio_slam/images/V1_02/"
+
+# image extension
+fileExtension: ".jpg"
+
+
+# front camera params
+# if not rectified D,K,R,P need to be provided
+Camera_l:
+  fx: 435.2046959714599
+  fy: 435.2046959714599
+  cx: 367.4517211914062
+  cy: 252.2008514404297
+  k1: 0.0
+  k2: 0.0
+  p1: 0.0
+  p2: 0.0
+  k3: 0.0
+  D: 
+    rows: 1
+    cols: 5
+    dt: d
+    data: [-0.28340811, 0.07395907, 0.00019359, 1.76187114e-05, 0.0]
+  K: 
+    rows: 3
+    cols: 3
+    dt: d
+    data: [458.654, 0.0, 367.215, 0.0, 457.296, 248.375, 0.0, 0.0, 1.0]
+  R : 
+    rows: 3
+    cols: 3
+    dt: d
+    data: [0.999966347530033, -0.001422739138722922, 0.008079580483432283, 0.001365741834644127, 0.9999741760894847, 0.007055629199258132, -0.008089410156878961, -0.007044357138835809, 0.9999424675829176]
+  P: 
+    rows: 3
+    cols: 4
+    dt: d
+    data: [435.2046959714599, 0, 367.4517211914062, 0,  0, 435.2046959714599, 252.2008514404297, 0,  0, 0, 1, 0]
+
+Camera_r:
+  fx: 435.2046959714599
+  fy: 435.2046959714599
+  cx: 367.4517211914062
+  cy: 252.2008514404297
+  k1: 0.0
+  k2: 0.0
+  p1: 0.0
+  p2: 0.0
+  k3: 0.0
+  K: 
+    rows: 3
+    cols: 3
+    dt: d
+    data: [457.587, 0.0, 379.999, 0.0, 456.134, 255.238, 0.0, 0.0, 1]
+  D: 
+    rows: 1
+    cols: 5
+    dt: d
+    data: [-0.28368365, 0.07451284, -0.00010473, -3.555907e-05, 0.0]
+  R : 
+    rows: 3
+    cols: 3
+    dt: d
+    data: [0.9999633526194376, -0.003625811871560086, 0.007755443660172947, 0.003680398547259526, 0.9999684752771629, -0.007035845251224894, -0.007729688520722713, 0.007064130529506649, 0.999945173484644]
+  P: 
+    rows: 3
+    cols: 4
+    dt: d
+    data: [435.2046959714599, 0, 367.4517211914062, -47.90639384423901, 0, 435.2046959714599, 252.2008514404297, 0, 0, 0, 1, 0]
+  
+Camera:
+  width: 752
+  height: 480
+  fps: 20.0
+  bl: 0.110074137800478
+
+# Feature Extractor Values
+FE:
+  nFeatures: 1000
+  nLevels: 8
+  imScale: 1.2
+  edgeThreshold: 19
+  maxFastThreshold: 20
+  minFastThreshold: 7
+  patchSize: 31

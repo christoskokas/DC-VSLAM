@@ -1,0 +1,55 @@
+# Change the values according to your camera and setup
+
+rectified: true
+
+# number of frames in dataset only used for non-real-time
+numOfFrames: 4541
+
+# For real-time. image path of front camera
+leftPathCam : "/kitti/camera_gray/left/image_rect"
+rightPathCam : "/kitti/camera_gray/right/image_rect"
+
+# path to image folder ( if not real-time )
+imagesPath: "/home/christos/catkin_ws/src/mini_project_kokas/src/vio_slam/images/kitti/00/"
+
+# image extension
+fileExtension: ".png"
+
+# front camera params
+Camera_l:
+  fx: 7.188560000000e+02
+  fy: 7.188560000000e+02
+  cx: 6.071928000000e+02
+  cy: 1.852157000000e+02
+  k1: 0
+  k2: 0
+  p1: 0
+  p2: 0
+  k3: 0
+
+Camera_r:
+  fx: 7.188560000000e+02
+  fy: 7.188560000000e+02
+  cx: 6.071928000000e+02
+  cy: 1.852157000000e+02
+  k1: 0
+  k2: 0
+  p1: 0
+  p2: 0
+  k3: 0
+
+Camera:
+  width: 1241
+  height: 376
+  fps: 10.0
+  bl: 0.53716
+
+# Feature Extractor Values
+FE:
+  nFeatures: 2000
+  nLevels: 8
+  imScale: 1.2
+  edgeThreshold: 19
+  maxFastThreshold: 20
+  minFastThreshold: 7
+  patchSize: 31
