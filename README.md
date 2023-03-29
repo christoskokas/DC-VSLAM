@@ -24,7 +24,7 @@ git clone https://github.com/christoskokas/DC-VSLAM.git
 Download and install packages used by dc_vslam :
 
 ```
-cd dc_vslam
+cd DC-VSLAM
 chmod +x build.sh
 ./build.sh
 ```
@@ -38,7 +38,7 @@ rosdep install --from-paths src --ignore-src -r -y
 Build the workspace.
 
 ```
-catkin build dc_vslam
+catkin_make
 source devel/setup.bash
 ```
 
@@ -57,7 +57,7 @@ Several launch files are provided. The RT denotes real-time and the AT denotes t
 
 DC-VSLAM can run both with images and with rosbags. Images need to be provided as presented below ( the bullets are folders ): 
 
-- dc_vslam
+- DC_VSLAM
   - images
     - dataset_name
       - left

@@ -1,4 +1,4 @@
 <launch>
-  <node name="DualCam" pkg="mc_vslam" type="DualCam" args = "config_gaz_exp.yaml" output="screen" >
+  <node name="DualCam" pkg="dc_vslam" type="DualCam" args = "config_gaz_exp.yaml" output="screen" >
   </node>
 </launch>

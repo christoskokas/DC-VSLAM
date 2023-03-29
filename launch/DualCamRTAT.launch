@@ -20,6 +20,6 @@
     <rosparam command="load" file="$(find dc_vslam)/config/AT/tags_exp.yaml"/>
   </node>
 
-  <node name="DualCamRT" pkg="mc_vslam" type="DualCamRT" args = "config_csl_exp.yaml" output="screen" >
+  <node name="DualCamRT" pkg="dc_vslam" type="DualCamRT" args = "config_csl_exp.yaml" output="screen" >
   </node>
 </launch>
