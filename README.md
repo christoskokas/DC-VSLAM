@@ -18,7 +18,7 @@ Two different ways are provided for installation. One is with ROS where DC-VSLAM
 Clone the package on the catkin workspace.
 
 ```
-git clone https://github.com/christoskokas/dc_vslam.git
+git clone https://github.com/christoskokas/DC-VSLAM.git
 ```
 
 Download and install packages used by dc_vslam :
