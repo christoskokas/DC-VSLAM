@@ -9,15 +9,16 @@ DC-VSLAM has been tested with OpenCV 4.2.0, Eigen 3.3.7 on Ubuntu 20.04 with ROS
 
 Kitti Dataset Sequence 01 :
 
-![](https://media.giphy.com/media/oVveJxLKq4lhBQPAdw/giphy-downsized-large.gif)
+![til](./results/kitti_01.gif)
 
 EuRoC Dataset V1_02 :
 
-![](https://media.giphy.com/media/OjRyCUPSgEVtfNHiAH/giphy-downsized-large.gif)
+![til](./results/V1_02.gif)
+
 
 Dual Camera on Vineyard :
 
-![](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYzMyOGQyMWY5Mzk0NDVmMzk5YWI3NGMwOThmNTVjY2Q0Y2U5ZDgxMyZjdD1n/bN2ff4O7f15VsyJL9p/giphy-downsized-large.gif)
+![til](./results/vine_vid.gif)
 
 
 # Installation
