@@ -1,5 +1,5 @@
 # DC-VSLAM
-This is the software related to the publication: Multicamera Visual SLAM For Vineyard Inspection, submited at the CASE 2023.
+This is the software related to the publication: Multicamera Visual SLAM For Vineyard Inspection, submitted at the CASE 2023.
 
 DC-VSLAM is a multicamera visual SLAM designed for vineyard inspection. To address the challenge of homogeneous environments, loop closures are detected using AprilTags.
 
