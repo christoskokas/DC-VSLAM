@@ -123,6 +123,18 @@ or images :
 roslaunch dc_vslam SingleCam.launch
 ```
 
+To run Dual Cam and wait for optimal pose of Apriltag :
+
+```
+roslaunch dc_vslam DualCam_exp.launch
+```
+
+To run Dual Cam with known Apriltag Pose :
+
+```
+roslaunch dc_vslam DualCam_exp_known.launch
+```
+
 ### Without ROS
 
 If the installation was completed without ROS images need to be provided. Single Cam is also provided to test on well-known datasets like KITTI or EUROC. Configs for both KITTI and EUROC are provided. To run single cam :
@@ -141,7 +153,6 @@ To run Dual cam :
 
 ## TO DO
 
-- [] Optimize Code
 - [] Add IMU integration
 - [] Add more Apriltags
 

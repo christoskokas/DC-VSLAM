@@ -161,6 +161,9 @@ target_link_libraries(DualCamRT_gaz_exp ${PROJECT_NAME})
 add_executable(DualCamRT_csl_exp src/DualCamRT_csl_exp.cpp)
 target_link_libraries(DualCamRT_csl_exp ${PROJECT_NAME})
 
+add_executable(DualCamRT_csl_exp_known src/DualCamRT_csl_exp_known.cpp)
+target_link_libraries(DualCamRT_csl_exp_known ${PROJECT_NAME})
+
 add_executable(DualCamRT src/DualCamRT.cpp)
 target_link_libraries(DualCamRT ${PROJECT_NAME})
 

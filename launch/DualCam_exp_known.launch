@@ -1,0 +1,4 @@
+<launch>
+  <node name="DualCamRT_csl_exp_known" pkg="dc_vslam" type="DualCamRT_csl_exp_known" output="screen" >
+  </node>
+</launch>

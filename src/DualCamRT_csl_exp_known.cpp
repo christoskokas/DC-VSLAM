@@ -99,7 +99,7 @@ int main (int argc, char **argv)
     ros::start();
     signal(SIGINT, signal_callback_handler);
 
-    std::string file = "config_csl_exp.yaml";
+    std::string file = "config_csl_exp_known.yaml";
     DC_VSLAM::ConfigFile* confFile = new DC_VSLAM::ConfigFile(file.c_str());
 
     if ( confFile->badFile )
@@ -171,20 +171,20 @@ int main (int argc, char **argv)
 
     // This is for when you know where the tag is. Changes need to be made in LC to account for that
 
-    // bool  tagPose {false};
-    // try
-    // {
-    //     tagPose = confFile->getValue<bool>("tagPose");
-    // }
-    // catch(const std::exception& e)
-    // {
-    //     tagPose = false;
-    // }
-    // if ( tagPose )
-    // {
-    //     std::vector<double> Twtag = confFile->getValue<std::vector<double>>("T_w_tag","data");
-    //     imgROS.tagPose << Twtag[0],Twtag[1],Twtag[2],Twtag[3],Twtag[4],Twtag[5],Twtag[6],Twtag[7],Twtag[8],Twtag[9],Twtag[10],Twtag[11],Twtag[12],Twtag[13],Twtag[14],Twtag[15];
-    // }
+    bool  tagPose {false};
+    try
+    {
+        tagPose = confFile->getValue<bool>("tagPose");
+    }
+    catch(const std::exception& e)
+    {
+        tagPose = false;
+    }
+    if ( tagPose )
+    {
+        std::vector<double> Twtag = confFile->getValue<std::vector<double>>("T_w_tag","data");
+        imgROS.tagPose << Twtag[0],Twtag[1],Twtag[2],Twtag[3],Twtag[4],Twtag[5],Twtag[6],Twtag[7],Twtag[8],Twtag[9],Twtag[10],Twtag[11],Twtag[12],Twtag[13],Twtag[14],Twtag[15];
+    }
 
 
     const std::string gtPath = (gtPose) ? confFile->getValue<std::string>("gtPath") : "";
@@ -390,20 +390,18 @@ void GetImagesROS::aprilTagCallBack(const DC_VSLAM::AprilTagDetectionArray::Cons
     bool yawCorr = abs(pitch) < 0.025;
     bool xCorr = abs(tra.x) < 0.03;
     bool yCorr = abs(tra.z) < 0.4;
-    if (!(tagPoseFilled && closeToAT && yawCorr && xCorr && yCorr))
+    if (!(closeToAT && yawCorr && xCorr && yCorr))
         return;
+    Eigen::Matrix4d tagposel = voSLAM->mZedCamera->cameraPose.pose * T_c1_AT * Tc2_tag;
+    std::cout << "AprilTag Detected!\n" << tagposel << "\n" << std::endl;
+    std::cout << "CAMERA POSE!\n" << voSLAM->mZedCamera->cameraPose.pose << std::endl;
+
     ATFoundCount++;
     if ( ATFoundCount < 30 )
         return;
     ATFound = true;
     std::cout << "AprilTag Detected!" << std::endl;
-    if ( !tagPoseFilled )
-    {
-        tagPose = voSLAM->mZedCamera->cameraPose.pose * T_c1_AT * Tc2_tag;
-        tagPoseFilled = true;
-        return;
-    }
-    std::cout << "AprilTag Detected again.. " << std::endl;
+    std::cout << "Loop Closure Starting.. " << std::endl;
     voSLAM->map->LCPose = tagPose * Tc2_tag.inverse() * T_c1_AT.inverse();
     voSLAM->map->aprilTagDetected = true;
 

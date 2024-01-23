@@ -134,8 +134,8 @@ int main (int argc, char **argv)
     }
 
     cv::Mat im(mZedCamera->mHeight, mZedCamera->mWidth, CV_8UC3, cv::Scalar(0, 0, 0));
-    cv::namedWindow("VSLAM : Front Camera");
-    cv::imshow("VSLAM : Front Camera", im);
+    cv::namedWindow("VSLAM : Front Camera1");
+    cv::imshow("VSLAM : Front Camera1", im);
     cv::waitKey(1);
 
     cv::namedWindow("VSLAM : Back Camera");

@@ -1,0 +1,190 @@
+# Change the values according to your camera and setup
+
+rectified: true
+rectifiedB: true
+
+# number of frames in dataset only used for non-real-time
+numOfFrames: 657
+
+# if ground path is provided 
+gtPose : true
+
+# For real-time. image path of front camera
+leftPathCam : "/zed_multi/front/zed_nodeF/left/image_rect_color"
+rightPathCam : "/zed_multi/front/zed_nodeF/right/image_rect_color"
+
+# For real-time. image path of back camera
+leftPathCamB : "/zed_multi/back/zed_nodeB/left/image_rect_color"
+rightPathCamB : "/zed_multi/back/zed_nodeB/right/image_rect_color"
+
+# topic for AprilTag detections
+aprilTagPath : "tag_detections"
+
+# topic for ground truth ( if used )
+gtPath : "front/zed_nodeF/odom"
+
+# path to image folder ( if not real-time )
+imagesPath: "/home/christos/catkin_ws/src/mini_project_kokas/src/vio_slam/images/"
+
+# image extension
+fileExtension: ".jpg"
+
+# front camera params
+Camera_l:
+  fx: 261.7559814453125
+  fy: 261.7559814453125
+  cx: 323.5115966796875
+  cy: 180.4974365234375
+  k1: 0.0
+  k2: 0.0
+  p1: 0.0
+  p2: 0.0
+  k3: 0.0
+
+Camera_r:
+  fx: 261.7559814453125
+  fy: 261.7559814453125
+  cx: 323.5115966796875
+  cy: 180.4974365234375
+  k1: 0.0
+  k2: 0.0
+  p1: 0.0
+  p2: 0.0
+  k3: 0.0
+  
+Camera:
+  width: 640
+  height: 360
+  fps: 15.0
+  bl: 0.119783
+
+# back camera params
+CameraB_l:
+  fx: 262.9667663574219
+  fy: 262.9667663574219
+  cx: 322.1598815917969
+  cy: 186.52577209472656
+  k1: 0.0
+  k2: 0.0
+  p1: 0.0
+  p2: 0.0
+  k3: 0.0
+
+CameraB_r:
+  fx: 262.9667663574219
+  fy: 262.9667663574219
+  cx: 322.1598815917969
+  cy: 186.52577209472656
+  k1: 0.0
+  k2: 0.0
+  p1: 0.0
+  p2: 0.0
+  k3: 0.0
+  
+CameraB:
+  width: 640
+  height: 360
+  fps: 15.0
+  bl: 0.119342
+
+# Feature Extractor Values
+FE:
+  nFeatures: 1000
+  nLevels: 8
+  imScale: 1.2
+  edgeThreshold: 19
+  maxFastThreshold: 20
+  minFastThreshold: 7
+  patchSize: 31
+
+  
+# front camera to back camera
+Multi:
+  T_c1_c2:
+    rows: 4
+    cols: 4
+    dt: d
+    data: [-1.0, 0.0, 0.0, 0.119783,
+         0.0, 1.0, 0.0, 0.0,
+         0.0, 0.0, -1.0, -0.35,
+         0.0, 0.0, 0.0, 1.0]
+
+# for pointcloud, not used currently
+T_w_c1:
+  rows: 4
+  cols: 4
+  dt: d
+  data: [0.0, 0.0, 1.0, 0.150,
+        -1.0, 0.0, 0.0, -0.06,
+        0.0, -1.0, 0.0, -0.20,
+        0.0, 0.0, 0.0, 1.0]
+
+# world to front camera for move_base, not used currently
+T_w_c1:
+  rows: 4
+  cols: 4
+  dt: d
+  data: [0.0, 0.0, 1.0, 0.150,
+        -1.0, 0.0, 0.0, -0.06,
+        0.0, -1.0, 0.0, -0.20,
+        0.0, 0.0, 0.0, 1.0]
+
+# base frame to c1 for optimal pose, not used currently
+T_bf_c1:
+  rows: 4
+  cols: 4
+  dt: d
+  data: [0.0, 0.0, 1.0, 0.150,
+        -1.0, 0.0, 0.0, 0.06,
+        0.0, -1.0, 0.0, 0.25,
+        0.0, 0.0, 0.0, 1.0]
+
+LCSameCam : false
+# camera 1 to April Tag cam IF zed cameras have correct orientation ( if they are inverted other TF needs to be used)
+# T_c1_AT:
+#   rows: 4
+#   cols: 4
+#   dt: d
+#   data: [0.0, 0.0, 1.0, 0.31,
+#         0.0, 1.0, 0.0, -0.037,
+#         -1.0, 0.0, 0.0, -0.25,
+#         0.0, 0.0, 0.0, 1.0]
+# camera 1 to April Tag cam inverted cams
+# front camera to camera detecting AprilTag
+T_c1_AT:
+  rows: 4
+  cols: 4
+  dt: d
+  data: [0.0, 0.0, 1.0, 0.253,
+        0.0, 1.0, 0.0, 0.0,
+        -1.0, 0.0, 0.0, -0.2,
+        0.0, 0.0, 0.0, 1.0]
+
+
+# for predefined pose of April Tag, not used currently
+tagPose : true
+T_w_tag:
+  rows: 4
+  cols: 4
+  dt: d
+  data: [-1.0, 0.0, 0.0, -1.24,
+        0.0, -1.0, 0.0, 0.15,
+        0.0, 0.0, 1.0, 2.125,
+        0.0, 0.0, 0.0, 1.0]
+
+#  data: [0.0, 0.0, 1.0, 0.210,
+#        0.0, 1.0, 0.0, 0.0,
+#        -1.0, 0.0, 0.0, -0.09,
+#        0.0, 0.0, 0.0, 1.0]
+
+
+
+# optimal Pose for April Tag Detection, not used currently
+# T_tag_b:
+#   rows: 4
+#   cols: 4
+#   dt: d
+#   data: [-1.0, 0.0, 0.0, 0.0,
+#         0.0, 0.0, 1.0, 0.0,
+#         0.0, 1.0, 0.0, 0.3,
+#         0.0, 0.0, 0.0, 1.0]
