@@ -1,4 +1,4 @@
 <launch>
-  <node name="SingleCamRT" pkg="dc_vslam" type="SingleCamRT" args = "config_V1_02.yaml" output="screen" >
+  <node name="SingleCamRT" pkg="dc_vslam" type="SingleCamRT" args = "config_csl_exp_known.yaml" output="screen" >
   </node>
 </launch>

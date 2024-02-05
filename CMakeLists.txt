@@ -170,6 +170,9 @@ target_link_libraries(DualCamRT ${PROJECT_NAME})
 add_executable(SingleCamRT src/SingleCamRT.cpp)
 target_link_libraries(SingleCamRT ${PROJECT_NAME})
 
+add_executable(SingleCamRT_known src/SingleCamRT_known.cpp)
+target_link_libraries(SingleCamRT_known ${PROJECT_NAME})
+
 endif()
 
 add_executable(SingleCam src/SingleCam.cpp)

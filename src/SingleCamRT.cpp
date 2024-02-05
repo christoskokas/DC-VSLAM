@@ -237,7 +237,7 @@ int main (int argc, char **argv)
     sync.registerCallback(boost::bind(&GetImagesROS::getImages,&imgROS,_1,_2));
 #else
     typedef message_filters::sync_policies::ApproximateTime<sensor_msgs::Image, sensor_msgs::Image> sync_pol;
-    message_filters::Synchronizer<sync_pol> sync(sync_pol(10), left_sub,right_sub);
+    message_filters::Synchronizer<sync_pol> sync(sync_pol(100), left_sub,right_sub);
     sync.registerCallback(boost::bind(&GetImagesROS::getImages,&imgROS,_1,_2));
 #endif
 
